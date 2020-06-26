@@ -106,6 +106,16 @@ public class ViewManager {
     }
     private SpaceRunnerButton createButtonToStart(){
         SpaceRunnerButton startButton = new SpaceRunnerButton("START");
+
+        startButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if(choosenShip != null){
+                    GameViewManager gameViewManager = new GameViewManager();
+                    gameViewManager.createNewGame(mainStage, choosenShip);
+                }
+            }
+        });
         startButton.setLayoutX(350);
         startButton.setLayoutY(300);
         return startButton;
